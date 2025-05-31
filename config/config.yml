@@ -1,0 +1,22 @@
+# OpenCTI AlienVault OTX Connector Configuration
+
+connector:
+  id: "alienvault-otx-connector"                # Unique ID (can be generated using uuidgen)
+  type: "EXTERNAL_IMPORT"
+  name: "AlienVault OTX"
+  scope: "otx"
+  confidence_level: 70                          # STIX confidence level (0–100)
+  update_existing_data: True
+  log_level: "info"                             # Log level: "info", "debug", etc.
+
+opencti:
+  url: "http://localhost:8080"                  # OpenCTI platform URL
+  token: "YOUR_OPENCTI_API_TOKEN"              # Replace with your OpenCTI API token
+
+otx:
+  api_key: "YOUR_ALIENVAULT_OTX_API_KEY"       # Replace with your OTX API key
+  author_name: "Exke Corporation CTI"           # Attribution name for created entities
+  max_tlp: "TLP:AMBER"                          # Maximum TLP level to ingest
+  create_indicators: True
+  interval: 3600                                # Time in seconds between polling (e.g., 3600 = 1 hour)
+
